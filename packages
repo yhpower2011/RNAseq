@@ -1,0 +1,14 @@
+# 1. Update Homebrew (optional, but good practice)
+brew update
+
+# 2. Install the core bioinformatics tools
+brew install fastqc             \
+             trimmomatic        \
+             star               \
+             samtools           \
+             brewsci/bio/subread \
+             r
+
+# 3. Install DESeq2 from Bioconductor within R
+R -e "if (!requireNamespace('BiocManager', quietly=TRUE)) install.packages('BiocManager'); \
+     BiocManager::install('DESeq2', update=TRUE, ask=FALSE)"
