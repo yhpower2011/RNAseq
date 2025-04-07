@@ -1,0 +1,20 @@
+#!/bin/bash
+set -euo pipefail
+
+# We receive one or more folder paths as arguments.
+# For each folder, create standard subdirectories if they do not exist yet.
+
+for project_folder in "$@"; do
+    echo "Setting up project folder: $project_folder"
+
+    # Create subfolders:
+    mkdir -p "$project_folder/raw_data"
+    mkdir -p "$project_folder/trimmed_reads"
+    mkdir -p "$project_folder/fastqc_results"
+    mkdir -p "$project_folder/aligned_bams"
+    mkdir -p "$project_folder/counts"
+    mkdir -p "$project_folder/analysis"
+
+    echo "Done. Project folder is ready: $project_folder"
+    echo "Place your paired FASTQ files in: $project_folder/raw_data/"
+done
