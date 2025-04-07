@@ -20,6 +20,16 @@ Now, whenever you have a new project, do the following:
 4.	The workflow will create raw_data, trimmed_reads, etc. subfolders.
 5.	Put your *.fastq.gz files into the newly created raw_data folder.
 6.	Finally, run your main pipeline Automator workflow (the big one that executes FastQC, Trimmomatic, STAR, featureCounts, and DESeq2).
+
+
+# Create an Automator Application (No Input)
+Open Automator and choose File → New, then select Application.
+ At the top of the Automator window:
+“Application receives” = “no input” in “any application.”
+From the Actions library, drag a Run Shell Script action into the workflow area.
+Shell = /bin/bash.
+Pass input = “to stdin” or “as arguments” (it doesn’t matter since it’s “no input”).
+
 # RNAseq-automator 
 The following refactored pipeline enables processing up to three RNA-seq projects concurrently. It builds upon the original Automator script (confirmed at the provided GitHub URL) and retains the same analysis logic (FastQC → Trimmomatic → STAR → featureCounts → DESeq2)​
 GITHUB.COM
